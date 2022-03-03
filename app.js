@@ -15,5 +15,15 @@ app.get("/", (req,res) =>{
 });
   
   setupContactRoutes();
+ //handle 404 response
+ app.use((req,res,next) =>{
+   next(new BadRequestError(404,"Resource not found"));
+ });
+ 
+ //defind error-handling middleware last, after orther app.use() and routes call
+ app.use((err,req,res,next) => {
+   errorHandler.handleError(error,res);
+ });
+
 
 module.exports = app;
