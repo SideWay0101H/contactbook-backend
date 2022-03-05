@@ -1,5 +1,19 @@
-const app = require("./app")
-const config = require("./contactbook-backend/app/config")
+const app = require("./app");
+const config = require("./app/config");
+const mongoose = require("mongoose");
+// const { BadrequestError} = require("../errors")
+// const handlePromise = require("../helpers/promise.helper");
+// const contact = require("../models/contact.model");
+
+//connect  to database
+mongoose.connect(config.db.uri)
+     .then(() =>{
+         console.log("Connected to the  database!");
+     })
+     .catch((error) =>{
+         console.log("Cannot connect to the database!", error);
+         process.exit();
+     });
 
 // start server
 const PORT = config.app.port;

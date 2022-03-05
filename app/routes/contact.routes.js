@@ -1,23 +1,42 @@
 const express = require("express");
 const contacts = require("../controllers/contact.controller");
 
-module.exports = (app) =>{
-    const router = express.Router()
+ module.exports = (app) => {
 
-    router.get("/", contacts.findAll);
-    
-    router.post("/", contacts.create);
-    
-    router.delete("/", contacts.deleteAll); 
+     const router = express.Router()
 
-    router.get("/Favorite", contacts.findAllFavorite);
+     router.get("/", contacts.findAll);
     
-    router.get("/:id", contacts.findOne);
+     router.post("/", contacts.create);
     
-    router.put("/:id", contacts.update);
-    
-    router.delete("/id", contacts.delete);
+     router.delete("/", contacts.deleteAll); 
 
-    app.use("/api/contacts", router);
+     router.get("/favorite", contacts.findAllFavorite);
+    
+     router.get("/:id", contacts.findOne);
+    
+     router.put("/:id", contacts.update);
+    
+     router.delete("/:id", contacts.delete);
 
-}
+     app.use("/api/contacts",router);
+ };
+
+// module.exports = (app) =>{
+//     const router = express.Router();
+
+//     router.route("/")
+//     .get(contacts.findAll)
+//     .post(contacts.create)
+//     .delete(contacts.deleteAll);
+
+//     router.route("/favorite")
+//     .get(contacts.findAllFavorite);
+
+//     router.route("/:id")
+//     .get(contacts.findOne)
+//     .put(contacts.update)
+//     .delete(contacts.delete);
+
+//     app.use("/api/contacts", router);
+// }
