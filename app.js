@@ -4,6 +4,7 @@ const cors = require("cors");
 const setupContactRoutes = require("./app/routes/contact.routes");
 
 const {BadRequestError, errorHandler} = require("./app/errors");
+
 const app = express();
 
 app.use(cors());

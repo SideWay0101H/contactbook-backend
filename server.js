@@ -1,9 +1,8 @@
 const app = require("./app");
 const config = require("./app/config");
+
 const mongoose = require("mongoose");
-// const { BadrequestError} = require("../errors")
-// const handlePromise = require("../helpers/promise.helper");
-// const contact = require("../models/contact.model");
+
 
 //connect  to database
 mongoose.connect(config.db.uri)
@@ -17,6 +16,6 @@ mongoose.connect(config.db.uri)
 
 // start server
 const PORT = config.app.port;
-app.listen(PORT , ()=>{
+app.listen(PORT , () => {
     console.log(`Server is running on port ${PORT}.`);
 });

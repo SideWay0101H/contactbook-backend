@@ -15,7 +15,7 @@ const schema = mongoose.Schema(
         phone: String,
         favorite: Boolean,
     },
-    { timestamps: true}
+    { timestamps: true }
 );
 
 schema.method("toJSON", function(){

@@ -1,7 +1,7 @@
-const handLePromise = (promise) =>{
+const handlePromise = (promise) =>{
     return promise
       .then((data) => [null,data])
       .catch((error)=>[error, undefined])
 };
 
-module.exports = handLePromise;
+module.exports = handlePromise;
